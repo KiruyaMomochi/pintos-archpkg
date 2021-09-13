@@ -1,0 +1,45 @@
+diff --git a/src/utils/squish-pty.c b/src/utils/squish-pty.c
+index e81043d..3967189 100644
+--- a/src/utils/squish-pty.c
++++ b/src/utils/squish-pty.c
+@@ -7,7 +7,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+-#include <stropts.h>
++// #include <stropts.h>
+ #include <sys/ioctl.h>
+ #include <sys/stat.h>
+ #include <sys/time.h>
+@@ -285,12 +285,12 @@ main (int argc __attribute__ ((unused)), char *argv[])
+ 
+   /* System V implementations need STREAMS configuration for the
+      slave. */
+-  if (isastream (slave))
+-    {
+-      if (ioctl (slave, I_PUSH, "ptem") < 0
+-          || ioctl (slave, I_PUSH, "ldterm") < 0)
+-        fail_io ("ioctl");
+-    }
++  // if (isastream (slave))
++  //   {
++  //     if (ioctl (slave, I_PUSH, "ptem") < 0
++  //         || ioctl (slave, I_PUSH, "ldterm") < 0)
++  //       fail_io ("ioctl");
++  //   }
+ 
+   /* Arrange to get notified when a child dies, by writing a byte
+      to a pipe fd.  We really want to use pselect() and
+diff --git a/src/utils/squish-unix.c b/src/utils/squish-unix.c
+index 805205b..4eda35a 100644
+--- a/src/utils/squish-unix.c
++++ b/src/utils/squish-unix.c
+@@ -8,7 +8,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+-#include <stropts.h>
++// #include <stropts.h>
+ #include <sys/ioctl.h>
+ #include <sys/stat.h>
+ #include <sys/time.h>
